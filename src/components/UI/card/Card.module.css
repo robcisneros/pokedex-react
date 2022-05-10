@@ -1,0 +1,482 @@
+
+.mainRed {
+  background-color: #cf1031;
+}
+.fullPokedex {
+  display: flex;
+  width: 600px;
+  height: 600px;
+}
+.leftPokedex {
+  width: 55%;
+  border-radius: 30px 5px 5px 30px;
+}
+.rightPokedex {
+  width: 45%;
+  border-radius: 5px 30px 30px 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.oneRow {
+  display: flex;
+  width: 100%;
+}
+.contenedorHeader {
+  margin: 8px;
+  justify-content: flex-start;
+  height: 10%;
+}
+.wc {
+  width: 60px;
+  height: 60px;
+  border-radius: 50% 50% 50% 50%;
+  background-color: white;
+}
+.bc {
+  width: 50px;
+  height: 50px;
+  border-radius: 50% 50% 50% 50%;
+  background-color: #009cd5;
+  margin-top: 3px;
+  margin-left: 6px;
+}
+.blc {
+  width: 40px;
+  height: 40px;
+  border-radius: 50% 50% 50% 50%;
+  background-color: #0bcdff;
+  margin-top: 3px;
+  margin-left: 3px;
+  position: absolute;
+}
+.bllc {
+  width: 10px;
+  height: 10px;
+  border-radius: 50% 50% 50% 50%;
+  background-color: #9de8fe;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+.smallCircle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50% 50% 50% 50%;
+  background-color: #a7d500;
+  margin-left: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+}
+.notchedCorner {
+  margin: 20px 1px 5px 1px;
+  justify-content: center;
+  height: 40%;
+}
+.leftButtonsContainer {
+  height: 10%;
+}
+.notchedBox {
+  width: 80%;
+  /*height: 200px;*/
+  height: 100%;
+  position: relative;
+  border-radius: 5px;
+  background-color: #dedfdf;
+  overflow: hidden;
+  transform: rotate(180deg);
+  display: flex;
+  flex-direction: row-reverse;
+}
+.notchedBox:after {
+  content: "";
+  position: absolute;
+  margin: -25px;
+  width: 49px;
+  height: 49px;
+  transform: rotate(45deg);
+  background-color: #cf1031;
+  border-color: #cf1031;
+}
+.screen {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 5px;
+  width: 90%;
+  height: 65%;
+  position: relative;
+  margin-top: 3px;
+  flex-direction: row-reverse;
+  transform: rotate(180deg);
+  justify-content: center;
+  align-items: center;
+}
+.screen img {
+  width: 50%;
+}
+.screenRelleno {
+  width: 60%;
+  height: 40px;
+}
+.oneJustifyItem {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.firstColum {
+  width: 20%;
+  height: 100%;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.blackc {
+  margin-top: 0px;
+  width: 95%;
+  height: 95%;
+  border-radius: 50% 50% 50% 50%;
+  background-color: #080505;
+  display: flex;
+  justify-content: flex-end;
+}
+.blackcc {
+  margin-top: 0px;
+  width: 90%;
+  height: 90%;
+  border-radius: 50% 50% 50% 50%;
+  background-color: #232322;
+}
+.secondColum {
+  width: 40%;
+  height: 100%;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.secondColumRect {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.rectangle1 {
+  margin-top: 15px;
+  width: 35px;
+  height: 12px;
+  border-radius: 10px;
+  background-color: #c60d13;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+}
+.rectangle2 {
+  margin-top: 15px;
+  width: 35px;
+  height: 12px;
+  border-radius: 10px;
+  background-color: #095279;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+}
+.thirdColum {
+  width: 35%;
+  height: 100%;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.joystickRow {
+  display: flex;
+  width: 100%;
+  height: 30%;
+}
+.joystickRow div {
+  width: 30%;
+  height: 100%;
+}
+.joystickUnit {
+  background-color: #262727;
+  border-color: #000;
+}
+.borderc1 {
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 6px 0px 2px #000 inset;
+}
+.borderc2 {
+  border-radius: 5px 0px 0px 5px;
+  box-shadow: 6px 4px 2px #000 inset;
+}
+.borderc3 {
+  border-radius: 0px 5px 5px 0px;
+}
+.borderc4 {
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: 6px 0px 2px #000 inset;
+}
+.inputSpaceContainer {
+  margin-top: 5%;
+  height: 35%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.inputSpace {
+  width: 70%;
+  height: 80%;
+  background-color: #55ab62;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.inputSpace h3 {
+  margin: 5px;
+  font-size: 10px;
+  font-family: arcadefont;
+}
+
+.inputSpace textarea {
+  background-color: #55ab62;
+  font-family: arcadefont;
+  font-size: 10px;
+  font-weight: 500px;
+  width: 80%;
+  height: 20%;
+  text-transform: uppercase;
+  color: #000;
+  letter-spacing: 2px;
+}
+
+.SHINEB {
+  background: #55ab62;
+  color: black;
+  width: 70%;
+  height: 30%;
+  margin: 5px;
+  font-size: 12px;
+  font-family: arcadefont;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  display: block;
+  letter-spacing: 4px;
+}
+
+.SHINEB::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(230, 175, 145, 0),
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(229, 172, 142, 0)
+  );
+  transform: rotateZ(60deg) translate(-5em, 7.5em);
+}
+
+.SHINEB::before,
+.SHINEB::after {
+  animation: sheen 1.5s infinite;
+}
+
+@keyframes sheen {
+  100% {
+    transform: rotateZ(60deg) translate(1em, -9em);
+  }
+}
+
+.skillsScreen {
+  width: 80%;
+  height: 60%;
+  background-color: #022c29;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.blueSkills {
+  width: 80%;
+  height: 5%;
+  background-color: #30a7f0;
+  border-radius: 5px;
+}
+.sizeWeightContainer {
+  width: 80%;
+  height: 15%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.sizeWeightRect {
+  width: 45%;
+  height: 60%;
+  background-color: #022c29;
+  border-radius: 5px;
+}
+.rightButtonsContainer {
+  width: 80%;
+  height: 8%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.dosBotones {
+  width: 40%;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.whiteSquare {
+  width: 50%;
+  height: 100%;
+  background-color: #dfdfde;
+  border-radius: 2px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+.circleRayasContainer {
+  width: 50%;
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.rayas {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.raya {
+  width: 40%;
+  height: 100%;
+  background-color: #313030;
+  border-radius: 2px;
+}
+.justrightcir {
+  align-self: flex-end;
+}
+.rowData {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+
+  height: 30%;
+  align-items: center;
+  margin-top: 3px;
+  margin-left: 5px;
+}
+.titleData {
+  display: flex;
+  width: 100%;
+  color: #ecda31;
+  /*margin: 5px;*/
+  font-size: 10px;
+  font-family: arcadefont;
+}
+
+.contentData {
+  display: flex;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.contentItem button {
+  color: white;
+  margin: 5px;
+  font-size: 9px;
+  font-family: arcadefont;
+  background-color: #3f77d4;
+}
+.rowName {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+
+  height: 15%;
+  align-items: center;
+  margin-top: 3px;
+  margin-left: 5px;
+}
+.rowStats {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+
+  height: 50%;
+  align-items: center;
+  margin-top: 3px;
+  margin-left: 5px;
+}
+.statsItem button {
+  color: white;
+  margin: 5px;
+  font-size: 8px;
+  font-family: arcadefont;
+  background: transparent;
+  border: none;
+}
+.rowWHContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.contentWH {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  height: 50%;
+  flex-direction: row;
+  height: 40%;
+  align-items: center;
+  margin-left: 2px;
+  /*
+    margin-top: 3px;
+    margin-left: 5px;
+    */
+
+  color: #ecda31;
+  /*margin: 5px;*/
+  font-size: 8px;
+  font-family: arcadefont;
+}
+.hwItem button {
+  color: #ecda31;
+  margin: 5px;
+  font-size: 9px;
+  font-family: arcadefont;
+  background: transparent;
+  border: none;
+}
+.unitValueRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 690px) {
+  .fullPokedex {
+    /* width: 600px;
+    min-height: 600px; */
+    width: 90%;
+    min-height: 500px;
+  }
+}
