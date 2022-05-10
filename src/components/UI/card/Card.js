@@ -1,9 +1,18 @@
-import { Fragment } from "react";
+import { Fragment, useRef } from "react";
 import classes from "./Card.module.css";
+import useHttp from "../../hooks/use-http";
+
+import { useSelector} from "react-redux";
 
 const Card = () => {
+    const { isLoading, error, sendRequest: sendTasksRequest } = useHttp();
+
+    const reduxName = useSelector((state) => state.pokemon.name);
+    const pokemonInputref = useRef();
+
     const fetchPokemon = () => {
-        console.log("hoola");
+        console.log("el valor del input es: " + pokemonInputref.current.value);
+
         // const pokeNameInput = document.getElementById("pokemonName");
         // let pokeName = pokeNameInput.value.trim();
         // pokeNameInput.value = "";
@@ -137,6 +146,7 @@ const Card = () => {
         
     //   };
       
+
   return (
     <Fragment>
       <h1>Pokedex</h1>
@@ -204,6 +214,7 @@ const Card = () => {
               placeholder="press when finished"
               id="pokemonName"
               name="pokemonName"
+              ref={pokemonInputref}
             ></textarea>
             <button className={classes.SHINEB} onClick={fetchPokemon}>
               PRESS
