@@ -1,7 +1,6 @@
 import { Fragment, useRef } from "react";
 import classes from "./Card.module.css";
 import useHttp from "../../hooks/use-http";
-import pokeballImg from "../../../assets/img/pokeball.png";
 import { pokemonActions } from "../../../store/pokemon-slice";
 import Button from "../../Button/Button";
 
@@ -15,6 +14,7 @@ const Card = () => {
   const pokeHeightRedux = useSelector((state) => state.pokemon.height);
   const pokeTypesRedux = useSelector((state) => state.pokemon.types);
   const pokeStatsRedux = useSelector((state) => state.pokemon.stats);
+  const pokePhotoRedux = useSelector((state) => state.pokemon.photo);
 
   const dispatch = useDispatch();
 
@@ -70,11 +70,6 @@ const Card = () => {
     }
   };
 
-  //   const pokeImage = (image) => {
-  //     const pokePhoto = document.getElementById("pokeImg");
-  //     pokePhoto.src = image;
-  //   };
-
   return (
     <Fragment>
       <h1>Pokedex</h1>
@@ -98,7 +93,7 @@ const Card = () => {
                 <div className={classes.oneJustifyItem}>
                   <div className={classes.screenRelleno}></div>
                   <div className={classes.screen}>
-                    <img src={pokeballImg} alt="Pokemon" id="pokeImg" />
+                    <img src={pokePhotoRedux} alt="Pokemon" id="pokeImg" />
                   </div>
                 </div>
               </div>

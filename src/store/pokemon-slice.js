@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialPokemonState = {
   name: "",
-  photo: "../../../assets/img/pokeball.png",
+  photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/640px-Pok%C3%A9_Ball_icon.svg.png",
   weight: "",
   height: "",
   types: [],
