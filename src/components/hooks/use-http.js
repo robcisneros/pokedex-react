@@ -1,8 +1,13 @@
 import { useState, useCallback } from "react";
 
+import { useDispatch } from "react-redux";
+import { pokemonActions } from "../../store/pokemon-slice";
+
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const dispatch = useDispatch();
 
   const sendRequest = useCallback(async (requestConfig, applyData) => {
     setIsLoading(true);
@@ -17,6 +22,7 @@ const useHttp = () => {
       );
 
       if (!response.ok) {
+        dispatch(pokemonActions.failPokemon());
         throw new Error("Request failed!");
       }
 
@@ -26,7 +32,7 @@ const useHttp = () => {
       setError(err.message || "Something went wrong!");
     }
     setIsLoading(false);
-  }, []);
+  }, [dispatch]);
   return {
       isLoading:isLoading,
       error: error,

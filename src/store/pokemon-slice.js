@@ -21,6 +21,14 @@ const pokemonSlice = createSlice({
       state.types = action.payload.types;
       state.stats = action.payload.stats;
     },
+    failPokemon(state) {
+      state.name = "NOT FOUND";
+      state.photo = "https://c.tenor.com/lmA7VALYIAsAAAAC/sad-pikachu.gif";
+      state.weight = "";
+      state.height = "";
+      state.types = [];
+      state.stats = [];
+    },
   },
 });
 
