@@ -1,20 +1,29 @@
 import { Fragment, useRef } from "react";
 import classes from "./Card.module.css";
 import useHttp from "../../hooks/use-http";
+import pokeballImg from "../../../assets/img/pokeball.png";
+import { pokemonActions } from "../../../store/pokemon-slice";
+import Button from "../../Button/Button";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 const Card = () => {
-  const { isLoading, error, sendRequest: getPokemonRequest } = useHttp();
+  const { sendRequest: getPokemonRequest } = useHttp();
 
-  const reduxName = useSelector((state) => state.pokemon.name);
+  const pokeNameRedux = useSelector((state) => state.pokemon.name);
+  const pokeWeightRedux = useSelector((state) => state.pokemon.weight);
+  const pokeHeightRedux = useSelector((state) => state.pokemon.height);
+  const pokeTypesRedux = useSelector((state) => state.pokemon.types);
+  const pokeStatsRedux = useSelector((state) => state.pokemon.stats);
+
+  const dispatch = useDispatch();
+
   const pokemonInputref = useRef();
 
   const onClickSearchHandler = () => {
     let enteredPokemonName = pokemonInputref.current.value;
 
     const transformData = (dataObj) => {
-      const pokemonInfo = dataObj;
       const loadedData = {
         name: "",
         photo: "",
@@ -49,7 +58,8 @@ const Card = () => {
           (loadedData.stats[index].value = statsItem.base_stat)
       );
 
-      console.log(loadedData);
+      // console.log(loadedData);
+      dispatch(pokemonActions.changePokemon(loadedData));
     };
     if (enteredPokemonName.length <= 0) {
       return;
@@ -58,138 +68,11 @@ const Card = () => {
 
       getPokemonRequest({ url }, transformData);
     }
-
-    // const pokeNameInput = document.getElementById("pokemonName");
-    // let pokeName = pokeNameInput.value.trim();
-    // pokeNameInput.value = "";
-    // pokeName = pokeName.toLowerCase();
-
-    // if (pokeName.length <= 0) {
-    //   return;
-    // } else {
-    //   const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}`;
-    //   fetch(url)
-    //     .then((res) => {
-    //       if (res.status != "200") {
-    //         console.log(res);
-    //         pokeImage("./images/pokemon-sad.gif");
-    //       } else {
-    //         const tipoContainer = document.getElementById("typeContent");
-    //         tipoContainer.innerHTML = "";
-    //         const pokeName = document.getElementById("pokeName");
-    //         pokeName.innerHTML = "";
-    //         const statsContainer = document.getElementById("statsContent");
-    //         statsContainer.innerHTML = "";
-    //         const pokeHeightC = document.getElementById("PokeHeight");
-    //         pokeHeightC.innerHTML = "";
-    //         const pokeWeightC = document.getElementById("PokeWeight");
-    //         pokeWeightC.innerHTML = "";
-
-    //         return res.json();
-    //       }
-    //     })
-    //     .then((data) => {
-    //       if (data) {
-    //         console.log(data);
-    //         let dataName = data.name;
-    //         let dataImg = data.sprites.front_default;
-    //         let dataTypes = data.types;
-
-    //         let dataHeight = data.height;
-
-    //         let dataWeight = data.weight;
-    //         let dataStats = data.stats;
-    //         pokeObject = {
-    //           name: dataName,
-    //           image: dataImg,
-    //           types: dataTypes,
-    //           height: dataHeight,
-    //           weight: dataWeight,
-    //           stats: dataStats,
-    //         };
-    //         pokeData(pokeObject);
-    //       }
-    //     });
-    // }
   };
 
   //   const pokeImage = (image) => {
   //     const pokePhoto = document.getElementById("pokeImg");
   //     pokePhoto.src = image;
-  //   };
-
-  //   const pokeData = (pokeObject) => {
-  //     const pokePhoto = document.getElementById("pokeImg");
-  //     pokePhoto.src = pokeObject.image;
-
-  //     const pokeName = document.getElementById("pokeName");
-  //     let newButton = document.createElement("button");
-  //     newButton.classList.add("contentItem");
-  //     newButton.innerHTML = pokeObject.name.toUpperCase();
-  //     pokeName.appendChild(newButton);
-
-  //     const pokeHeight = document.getElementById("PokeHeight");
-  //     let heightButton = document.createElement("button");
-  //     heightButton.classList.add("hwItem");
-  //     heightButton.innerHTML = pokeObject.height + " M";
-  //     pokeHeight.appendChild(heightButton);
-
-  //     const pokeWeight = document.getElementById("PokeWeight");
-  //     let weightButton = document.createElement("button");
-  //     weightButton.classList.add("hwItem");
-  //     weightButton.innerHTML = pokeObject.weight + " KG";
-  //     pokeWeight.appendChild(weightButton);
-
-  //     addStatsButtons(pokeObject.stats);
-  //     addTypeButtons(pokeObject.types);
-  //   };
-
-  //   const addTypeButtons = (types) => {
-  //     const tipoContainer = document.getElementById("typeContent");
-  //     pokeLength = types.length;
-  //     types.map((typeItem) => {
-  //       let ntype = typeItem.type.name.toUpperCase();
-  //       let newButton = document.createElement("button");
-  //       newButton.classList.add("contentItem");
-  //       newButton.innerHTML = ntype;
-  //       tipoContainer.appendChild(newButton);
-  //     });
-  //   };
-
-  //   const addStatsButtons = (stats) => {
-  //     const statsContainer = document.getElementById("statsContent");
-
-  //     let hpStat = "HP:" + stats[0].base_stat;
-  //     let newButton0 = document.createElement("button");
-  //       newButton0.classList.add("statsItem");
-  //       newButton0.innerHTML = hpStat;
-  //       statsContainer.appendChild(newButton0);
-  //     let attackStat = "ATK:" + stats[1].base_stat;
-  //     let newButton1 = document.createElement("button");
-  //       newButton1.classList.add("statsItem");
-  //       newButton1.innerHTML = attackStat;
-  //       statsContainer.appendChild(newButton1);
-  //     let defenseStat = "DEF:" + stats[2].base_stat;
-  //     let newButton2 = document.createElement("button");
-  //       newButton2.classList.add("statsItem");
-  //       newButton2.innerHTML = defenseStat;
-  //       statsContainer.appendChild(newButton2);
-  //     let spAttackStat = "SP.ATK:" + stats[3].base_stat;
-  //     let newButton3 = document.createElement("button");
-  //       newButton3.classList.add("statsItem");
-  //       newButton3.innerHTML = spAttackStat;
-  //       statsContainer.appendChild(newButton3);
-  //     let spDefenseStat = "SP.DEF:" + stats[4].base_stat;
-  //     let newButton4 = document.createElement("button");
-  //       newButton4.classList.add("statsItem");
-  //       newButton4.innerHTML = spDefenseStat;
-  //       statsContainer.appendChild(newButton4);
-  //     let speedStat = "SPEED:" + stats[5].base_stat;
-  //     let newButton5 = document.createElement("button");
-  //       newButton5.classList.add("statsItem");
-  //       newButton5.innerHTML = speedStat;
-  //       statsContainer.appendChild(newButton5);
-
   //   };
 
   return (
@@ -215,11 +98,7 @@ const Card = () => {
                 <div className={classes.oneJustifyItem}>
                   <div className={classes.screenRelleno}></div>
                   <div className={classes.screen}>
-                    <img
-                      src="../../../assets/img/pokeball.png"
-                      alt="Pokemon"
-                      id="pokeImg"
-                    />
+                    <img src={pokeballImg} alt="Pokemon" id="pokeImg" />
                   </div>
                 </div>
               </div>
@@ -284,23 +163,34 @@ const Card = () => {
             <div className={classes.rowName}>
               <div className={classes.titleData}>NAME:</div>
               <div className={classes.contentData}>
-                <div className={classes.contentItem} id="pokeName"></div>
+                <div className={classes.contentItem} id="pokeName">
+                  {" "}
+                  {pokeNameRedux && <button> {pokeNameRedux} </button>}{" "}
+                </div>
               </div>
             </div>
 
             <div className={classes.rowData}>
               <div className={classes.titleData}>TYPE:</div>
               <div className={classes.contentData}>
-                <div className={classes.contentItem} id="typeContent"></div>
+                <div className={classes.contentItem} id="typeContent">
+                  {pokeTypesRedux &&
+                    pokeTypesRedux.map((item, index) => (
+                      <Button lakey={index} contenido={item.toUpperCase()} />
+                    ))}
+                </div>
               </div>
-
-              {/* <button id="pokeTipo"></button> */}
             </div>
 
             <div className={classes.rowStats}>
               <div className={classes.titleData}>STATS:</div>
               <div className={classes.contentData}>
-                <div className={classes.statsItem} id="statsContent"></div>
+                <div className={classes.contentItem} id="statsContent">
+                {pokeStatsRedux &&
+                    pokeStatsRedux.map((item, index) => (
+                      <Button lakey={index} contenido={`${item.nameStat} ${item.value}`} />
+                    ))}
+                </div>
               </div>
             </div>
           </div>
@@ -329,7 +219,11 @@ const Card = () => {
                 <div className={classes.contentWH}>HEIGHT:</div>
                 <div className={classes.contentWH}>
                   <div className={classes.unitValueRow}>
-                    <div className={classes.hwItem} id="PokeHeight"></div>
+                    <div className={classes.hwItem} id="PokeHeight">
+                      {pokeHeightRedux && (
+                        <button> {pokeHeightRedux} M </button>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -340,7 +234,11 @@ const Card = () => {
                 <div className={classes.contentWH}>WEIGHT:</div>
                 <div className={classes.contentWH}>
                   <div className={classes.unitValueRow}>
-                    <div className={classes.hwItem} id="PokeWeight"></div>
+                    <div className={classes.hwItem} id="PokeWeight">
+                      {pokeWeightRedux && (
+                        <button> {pokeWeightRedux} KG</button>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

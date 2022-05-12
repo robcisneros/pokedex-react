@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialPokemonState = {
-  name: "el pokemon",
-  photo: "la foto",
-  types: ["water","grass"],
-  stats: ["dos","tres"],
+  name: "",
+  photo: "../../../assets/img/pokeball.png",
+  weight: "",
+  height: "",
+  types: [],
+  stats: [],
 };
 
 const pokemonSlice = createSlice({
@@ -12,7 +14,12 @@ const pokemonSlice = createSlice({
   initialState: initialPokemonState,
   reducers: {
     changePokemon(state, action) {
-      state.pokemon = action.payload;
+      state.name = action.payload.name;
+      state.photo = action.payload.photo;
+      state.weight = action.payload.weight;
+      state.height = action.payload.height;
+      state.types = action.payload.types;
+      state.stats = action.payload.stats;
     },
   },
 });
